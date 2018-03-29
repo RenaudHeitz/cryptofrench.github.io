@@ -15,7 +15,7 @@ app.use(express.static('public'));
 
 // Handle the index page
 app.get('/', function (req, res) {
-        res.render('index');
+        res.render('index',{result_err : null} );
         })
 
 
@@ -51,7 +51,7 @@ app.post('/', function (req, res) {
                                       // bdd query options
                                       var options = {
                                       "limit": limit,
-                                      
+                                      "maxTimeMS" : 7000,
                                       "sort": { "created": -1 }
                                       };
                                       console.log("Connected ")
@@ -61,11 +61,12 @@ app.post('/', function (req, res) {
                                       // search on the BDD the tags
                                       collection.find({"tags":{ $all: tags }},options).toArray(function(err, data) {
                                                                                                            if (err) {
-                                                                                                           console.log(err);
+                                                                                                            console.log(err);
+                                                                                                            res.render('index', {result_err : 1});
                                                                                                            }
                                                                                                             console.log("Render");
                                                                                                             // Display the results on page.ejs
-                                                                                                            res.render('page', {tag : tags, data : data});
+                                                                                                            res.render('result', {tag : tags, data : data});
                                                                                                             db.close()
 
                                                                                                            });
