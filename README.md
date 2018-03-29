@@ -3,15 +3,16 @@
 Web app : https://steemmts.herokuapp.com
 
 
-INSTALL : 
-Clone the repo : git clone https://github.com/RenaudHeitz/cryptofrench.github.io.git
+<b>INSTALL : </b>
 
-Go to the folder : cd cryptofrench.github.io
+<i>Clone the repo :</i> git clone https://github.com/RenaudHeitz/cryptofrench.github.io.git
 
-Install the dependencies : npm install
+<i>Go to the folder :</i> cd cryptofrench.github.io
 
-run : node app.js
+<i>Install the dependencies :</i> npm install
 
-Now you can access the app at : http://localhost:3000
+<i>run :</i> node app.js
+
+<b>Now you can access the app at : http://localhost:3000 </b>
 
 
