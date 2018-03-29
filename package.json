@@ -1,11 +1,16 @@
 {
   "name": "nodetest",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "test",
   "engines": {
     "node": "8.8.1"
   },
   "main": "app.js",
+=======
+  "description": "SteemSearch allows you to search multiple tags in steem ecosystem",
+  "main": "server.js",
+>>>>>>> 0f25679eeea36246736298080f70b4b7b9d5aedf
   "scripts": {
     "start": "node app.js"
   },
