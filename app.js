@@ -58,8 +58,7 @@ app.post('/', function (req, res) {
                                                                                                            if (err) {
                                                                                                            console.log(err);
                                                                                                            }
-                                                                                                            console.log("la " + data.length);
-                                                                                               //console.log(data[0]);
+                                                                                                            console.log("Render");
                                                                                                             res.render('page', {tag : tags, data : data});
                                                                                                             db.close()
 
