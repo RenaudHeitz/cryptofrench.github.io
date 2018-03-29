@@ -9,7 +9,7 @@ exports.strip = function(string){
     string = string.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
     string = string.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,'');
     string = string.replace(/!+\[.*\]/,'');
-    string = string.split(/\s+/).slice(0,30).join(" ");
+    string = string.split(/\s+/).slice(0,50).join(" ");
     string = string + " ...";
     return string;
     

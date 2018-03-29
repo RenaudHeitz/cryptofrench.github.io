@@ -17,7 +17,7 @@ app.use(express.static('public'));
 
 // Handle the index page
 app.get('/', function (req, res) {
-        res.render('index',{result_err : null} );
+        res.render('index',{result_err : null });
         })
 
 
