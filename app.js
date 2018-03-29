@@ -3,7 +3,6 @@ const ejs = require('ejs')
 const app = express()
 const bodyParser = require('body-parser');
 const request = require('request');
-const Promise = require('promise');
 const MongoClient = require('mongodb').MongoClient;
 const Db = require('mongodb').Db, Server = require('mongodb').Server ,
 assert = require('assert');
