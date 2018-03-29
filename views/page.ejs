@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<% include head.ejs %>
+</head>
+<header>
+<% include header.ejs %>
+
+</header>
+<body>
+<div class="container">
+<h3> Recent post using the tags :  <b><%= tags%></b></h3>
+
+
+<div class="table">
+<table class="table table-sm">
+<thead>
+<tr>
+<th>Account Name</th>
+<th>Title</th>
+<th>Date</th>
+<th>Links</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<% for(var i = 0 ; i < data.length ; i ++) { %>
+<tr>
+<td><a href="https://busy.org/@<%=data[i]['author'] %>" target="_blank">@<%=data[i]['author'] %> </td>
+<td><%= data[i]['title'] %></td>
+<td><%= data[i]['created'].toISOString().replace(/T/, ' ').replace(/\..+/, '')  %></td>
+<td><a href="https://busy.org<%= data[i]['url'] %>" target="_blank"><img src="/img/busy.png" alt="busy"/></a></td>
+<td><a href="https://steemit.com<%= data[i]['url'] %>"target="_blank"><img src="/img/steemit.png" alt="steemit"/></a></td>
+</tr>
+<% }; %>
+<tbody>
+
+</table>
+</div>
+
+</div>
+<footer>
+<% include footer.ejs %>
+</footer>
+</body>
+</html>
+
+
+
