@@ -36,7 +36,6 @@ app.post('/', function (req, res) {
          var stop = 0;
          var limit = 30;
          console.log(tags)
-       //  let promiseGetData = new Promise(function(resolve,reject){
                   MongoClient.connect('mongodb://'+user+':'+password+'@mongo1.steemdata.com:27017/SteemData',{native_parser:true}, function(err,db){
                                       if(err){
                                       console.log("Auth Failed")
