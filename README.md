@@ -9,7 +9,7 @@ Web app : https://steemmts.herokuapp.com
 
 <i>Go to the folder :</i> cd cryptofrench.github.io
 
-<i>Install the dependencies :</i> npm install
+<i>Install the dependencies :</i> npm install --save
 
 <i>run :</i> node app.js
 
