@@ -1,8 +1,8 @@
 {
   "name": "nodetest",
   "version": "1.0.0",
-  "description": "test",
-  "main": "index.js",
+  "description": "SteemSearch allows you to search multiple tags in steem ecosystem",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
