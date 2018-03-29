@@ -2,13 +2,12 @@
   "name": "nodetest",
   "version": "1.0.0",
   "description": "test",
- "engines": {
+  "engines": {
     "node": "8.8.1"
   },
-
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,4 +19,3 @@
   },
   "devDependencies": {}
 }
-
