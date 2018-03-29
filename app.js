@@ -6,6 +6,8 @@ const request = require('request');
 const MongoClient = require('mongodb').MongoClient;
 const Db = require('mongodb').Db, Server = require('mongodb').Server ,
 assert = require('assert');
+var cleaner = require("./function/cleanPreview.js");
+app.locals.cleaner = require("./function/cleanPreview.js");
 
 app.engine
 app.set('view engine', 'ejs')
@@ -64,6 +66,11 @@ app.post('/', function (req, res) {
                                                                                                             console.log(err);
                                                                                                             res.render('index', {result_err : 1});
                                                                                                            }
+
+                                                                                                            /*console.log(data[1]['body']);
+                                                                                                            console.log(cleaner.strip(data[1]['body']));*/
+
+
                                                                                                             console.log("Render");
                                                                                                             // Display the results on page.ejs
                                                                                                             res.render('result', {tag : tags, data : data});
