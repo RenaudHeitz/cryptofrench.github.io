@@ -24,7 +24,14 @@ app.get('/', function (req, res) {
 // Function that get the tags from the index page
 
 app.post('/', function (req, res) {
-         // get the tags
+         // get the tag
+         let limit;
+         if(req.body.limit !=null)
+         {
+          limit = parseInt(req.body.limit, 10)
+         }
+         else limit = 20;
+         console.log(limit);
          let tag = req.body.tag
          tag = tag.replace(/\s+/g, '');
          // Split tags
@@ -40,7 +47,6 @@ app.post('/', function (req, res) {
          var title = [];
          var date = [];
          var stop = 0;
-         var limit = 40;
          
          console.log(tags)
                     // connect to the BDD
@@ -53,7 +59,7 @@ app.post('/', function (req, res) {
                                       // bdd query options
                                       var options = {
                                       "limit": limit,
-                                      "maxTimeMS" : 10000,
+                                      "maxTimeMS" : 2500*(limit/10),
                                       "sort": { "created": -1 }
                                       };
                                       console.log("Connected ")

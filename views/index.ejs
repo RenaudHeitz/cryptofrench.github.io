@@ -9,26 +9,48 @@
 <header>
 <% include header.ejs %>
 </header>
+
 <main>
+
 <div class="container">
+<div class="jumbotron">
     <div class="row">
-            <div class="jumbotron">
-                <h3>Welcome to SteemMultiTagSearch</h3>
-                    <p>SteemMTS is a Steem tool which allows you to search articles matching multiple tags.</p>
-            </div>
-    </div>
-    <div class="row">
-        <form action="/" method="post">
-            <div class="input-group">
-                <input name="tag" type="text" class="form-control" placeholder="Tape your tags separated by comas, like this : Tag1 , Tag2">
-                <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit">
-                        <i class="glyphicon glyphicon-search"></i>
-                    </button>
+                <div class="col-sm-2">
+                    <img src="/img/index_logo.png">
                 </div>
+
+                <div class="col-sm">
+                    <br>
+                    <h3>Welcome to SteemMultiTagSearch</h3>
+                    <p>SteemMTS is the first <b>Steem search engine</b> that works with multiple tags.
+                        <br>Just type the tags <i>separated by commas</i> and click search.</p>
+                </div>
+        </div>
+</div>
+
+
+<div class="row">
+<div class="col-sm">
+    <form action="/" method="post">
+        <div class="input-group">
+            <input type="text" name="tag" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Tape your tags separated by comas, like this : Tag1 , Tag2">
+            <div class="input-group-append ">
+                <button type="submit" class="btn btn-outline-secondary">Search</button>
+                <button type="submit"  class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only py-0">Toggle Dropdown</span>
+                </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item py-0">Number of results</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <button type="submit" class="dropdown-item" name ="limit" value=40>40</button>
+                <button type="submit" class="dropdown-item" name ="limit" value=60>60</button>
+                <button type="submit" class="dropdown-item" name ="limit" value=80>80</button>
+                <button type="submit" class="dropdown-item" name ="limit" value=100>100</button>
             </div>
-        </form>
     </div>
+</div>
+</div>
+
     <% if(result_err !== null){ %>
     <div class = "row">
         <p><center><h3> Oops your tag combinaison don't match any article. Maybe try an other one ! </h3></center></p>
