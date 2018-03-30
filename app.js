@@ -6,8 +6,8 @@ const request = require('request');
 const MongoClient = require('mongodb').MongoClient;
 const Db = require('mongodb').Db, Server = require('mongodb').Server ,
 assert = require('assert');
-var cleaner = require("./function/cleanPreview.js");
-app.locals.cleaner = require("./function/cleanPreview.js");
+var cleaner = require("./public/function/cleanPreview.js");
+app.locals.cleaner = require("./public/function/cleanPreview.js");
 
 app.engine
 app.set('view engine', 'ejs')
@@ -40,7 +40,7 @@ app.post('/', function (req, res) {
          var title = [];
          var date = [];
          var stop = 0;
-         var limit = 30;
+         var limit = 40;
          
          console.log(tags)
                     // connect to the BDD
@@ -53,7 +53,7 @@ app.post('/', function (req, res) {
                                       // bdd query options
                                       var options = {
                                       "limit": limit,
-                                      "maxTimeMS" : 7000,
+                                      "maxTimeMS" : 10000,
                                       "sort": { "created": -1 }
                                       };
                                       console.log("Connected ")
@@ -67,13 +67,13 @@ app.post('/', function (req, res) {
                                                                                                             res.render('index', {result_err : 1});
                                                                                                            }
 
-                                                                                                            /*console.log(data[1]['body']);
-                                                                                                            console.log(cleaner.strip(data[1]['body']));*/
+                                                                                                          //  console.log(data[1]['json_metadata']['image'][0]);
+                                                                                                            /*console.log(cleaner.strip(data[1]['body']));*/
 
 
                                                                                                             console.log("Render");
                                                                                                             // Display the results on page.ejs
-                                                                                                            res.render('result', {tag : tags, data : data});
+                                                                                               res.render('result', {tag : tags, data : data });
                                                                                                             db.close()
 
                                                                                                            });

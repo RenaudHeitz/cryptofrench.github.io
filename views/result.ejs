@@ -12,13 +12,15 @@
 <h3> Recent post using the tags :  <b><%= tags%></b></h3>
 
 
-<div class="table">
-    <table class="table table-sm">
+<table class="table table-sm">
         <thead>
         <div class="row">
             <tr>
                 <div class="col-sm">
                     <th>Account Name</th>
+                </div>
+                <div class="col-sm">
+                    <th>Picture</th>
                 </div>
                 <div class="col-sm">
                     <th>Title</th>
@@ -33,13 +35,21 @@
             </tr>
         </div>
         </thead>
-
         <tbody>
         <% for(var i = 0 ; i < data.length ; i ++) { %>
         <div class="row">
             <tr>
                 <div class="col-sm">
                     <td><a href="https://busy.org/@<%=data[i]['author'] %>" target="_blank">@<%=data[i]['author'] %> </td>
+                </div>
+                <div class="col-sm">
+                    <td>
+                    <% if(data[i]['json_metadata']['image'] != null){ %>
+                        <center><img src="<%= data[i]['json_metadata']['image'][0] %>" alt="preview" height="90" ></center>
+                    <% }else {%>
+                        <center><img src="/img/no_picture.png" alt="preview" height="100" ></center>
+                    <% }%>
+                    </td>
                 </div>
                 <div class="col-sm">
                     <td><b><%= data[i]['title'] %></b><br><span class="border-bottom"><p><small> <%= cleaner.strip(data[i]['body']) %></small></p></span></td>
@@ -55,10 +65,17 @@
         </div>
         <% }; %>
         <tbody>
-
     </table>
-</div>
-
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="./function/jquery.paginate.js"></script>
+<script>
+$(document).ready(function () {
+$('table').paginate({
+'elemsPerPage': 4,
+'maxButtons': 5
+});
+});
+</script>
 </div>
 <footer>
 <% include footer.ejs %>
