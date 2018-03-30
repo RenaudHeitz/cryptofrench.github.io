@@ -7,7 +7,7 @@ Web app : https://steemmts.herokuapp.com
 
 
 <h4>INSTALL : </h4>
-Clone the repo :  `git clone https://github.com/RenaudHeitz/cryptofrench.github.io.git`
+Clone the repo :  git clone https://github.com/RenaudHeitz/cryptofrench.github.io.git
 
 Go to the folder : `cd cryptofrench.github.io`
 
