@@ -52,14 +52,17 @@ app.post('/', function (req, res) {
                     // connect to the BDD
                   MongoClient.connect('mongodb://'+user+':'+password+'@mongo1.steemdata.com:27017/SteemData',{native_parser:true}, function(err,db){
                                       if(err){
-                                      console.log("Auth Failed")
+                                      console.log("Auth Failed");
+                                      res.render('index', {result_err : 1});
                                       }
+                                      else
+                                      {
                                       var collection = db.collection("Posts");
                                       
                                       // bdd query options
                                       var options = {
                                       "limit": limit,
-                                      "maxTimeMS" : 2500*(limit/10),
+                                      "maxTimeMS" : 3000*(limit/5),
                                       "sort": { "created": -1 }
                                       };
                                       console.log("Connected ")
@@ -70,12 +73,10 @@ app.post('/', function (req, res) {
                                       collection.find({"tags":{ $all: tags }},options).toArray(function(err, data) {
                                                                                                            if (err) {
                                                                                                             console.log(err);
-                                                                                                            res.render('index', {result_err : 1});
+                                                                                                            res.render('index', {result_err : 2});
                                                                                                            }
 
-                                                                                                          //  console.log(data[1]['json_metadata']['image'][0]);
-                                                                                                            /*console.log(cleaner.strip(data[1]['body']));*/
-
+                                                                                               
 
                                                                                                             console.log("Render");
                                                                                                             // Display the results on page.ejs
@@ -83,13 +84,13 @@ app.post('/', function (req, res) {
                                                                                                             db.close()
 
                                                                                                            });
-                                      
+                                      }// end else
                                       
                                       })
-                                        
          
          
-                                                
+         
+         
                                                 
          })
                             

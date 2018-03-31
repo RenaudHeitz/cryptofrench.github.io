@@ -30,31 +30,41 @@
 
 
 <div class="row">
-<div class="col-sm">
-    <form action="/" method="post">
-        <div class="input-group">
-            <input type="text" name="tag" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Tape your tags separated by comas, like this : Tag1 , Tag2">
-            <div class="input-group-append ">
-                <button type="submit" class="btn btn-outline-secondary">Search</button>
-                <button type="submit"  class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only py-0">Toggle Dropdown</span>
-                </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item py-0">Number of results</a>
-                <div role="separator" class="dropdown-divider"></div>
-                <button type="submit" class="dropdown-item" name ="limit" value=40>40</button>
-                <button type="submit" class="dropdown-item" name ="limit" value=60>60</button>
-                <button type="submit" class="dropdown-item" name ="limit" value=80>80</button>
-                <button type="submit" class="dropdown-item" name ="limit" value=100>100</button>
-            </div>
+    <div class="col-sm">
+        <form action="/" method="post">
+            <div class="input-group">
+                <input type="text" name="tag" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Tape your tags separated by comas, like this : Tag1 , Tag2">
+                <div class="input-group-append ">
+                    <button type="submit" class="btn btn-outline-secondary">Search</button>
+                    <button type="submit"  class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only py-0">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item py-0">Number of results</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <button type="submit" class="dropdown-item" name ="limit" value=40>40</button>
+                        <button type="submit" class="dropdown-item" name ="limit" value=60>60</button>
+                        <button type="submit" class="dropdown-item" name ="limit" value=80>80</button>
+                        <button type="submit" class="dropdown-item" name ="limit" value=100>100</button>
+                    </div>
+                </div>
+        </div>
     </div>
 </div>
+<% if(result_err == 1){ %>
+<div class = "row">
+<div class="col">
+<p><center><h3> Oops ! It seems that SteemData.com is not available. Sorry for the inconvenience, please try later. </h3></center></p>
 </div>
+</div>
+<%}; %>
 
-    <% if(result_err !== null){ %>
+    <% if(result_err == 2){ %>
     <div class = "row">
-        <p><center><h3> Oops your tag combinaison don't match any article. Maybe try an other one ! </h3></center></p>
-    </div>
+        <div class="col">
+            <p><center><h3> Oops your tag combinaison don't match any article. Maybe try an other one ! </h3></center></p>
+        </div>
+</div>
     <%}; %>
 </div>
 </main>
