@@ -9,77 +9,35 @@
 </header>
 <body>
 <div class="container">
-<div class= "row">
 <h3> Recent post using the tags :  <b><%= tags%></b></h3>
-</div>
-<div class="row">
-<table id="table" class="table table">
-        <thead>
-        <div class="row">
-            <tr>
-                <div class="col-4">
-                    <th>Account</th>
-                </div>
-                <div class="col">
-                    <th>Picture</th>
-                </div>
-                <div class="col">
-                    <th>Title</th>
-                </div>
-                <div class="col">
-                    <th>Date</th>
-                </div>
-                <div class="col">
-                    <th>Links</th>
-                    <th></th>
-                </div>
-            </tr>
-        </div>
-        </thead>
-        <tbody>
-        <% for(var i = 0 ; i < data.length ; i ++) { %>
-        <div class="row">
-            <tr>
-                <div class="col-4">
-                    <td><a href="https://busy.org/@<%=data[i]['author'] %>" target="_blank"><b>@<%=data[i]['author'] %> </b></td>
-                </div>
-                <div class="col">
-                    <td>
-                    <% if(data[i]['json_metadata']['image'] != null){ %>
-                        <center><img src="<%= data[i]['json_metadata']['image'][0] %>" alt="preview" height="80"  ></center>
-                    <% }else {%>
-                        <center><img src="/img/no_picture.png" alt="preview" height="80"  ></center>
-                    <% }%>
-                    </td>
-                </div>
-                <div class="col">
-                    <td><b><%= data[i]['title'] %></b><br><span class="border-bottom"><p><small> <%= cleaner.strip(data[i]['body']) %></small></p></span></td>
-                </div>
-                <div class="col">
-                    <td><%= data[i]['created'].toISOString().replace(/T/, ' ').replace(/\..+/, '')  %></td>
-                </div>
-                <div class="col">
-                    <td><a href="https://busy.org<%= data[i]['url'] %>" target="_blank"><img src="/img/busy.png" alt="busy"/></a></td>
-                    <td><a href="https://steemit.com<%= data[i]['url'] %>"target="_blank"><img src="/img/steemit.png" alt="steemit"/></a></td>
-                </div>
-            </tr>
-        </div>
-        <% }; %>
-        <tbody>
-    </table>
 
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script src="/function/jquery.simplePagination.js"></script>
-<script>
-$("#table").simplePagination({
-containerClass: "table table",
-perPage: 4,
-currentPage: 1,
-previousButtonClass: "btn btn-secondary",
-nextButtonClass: "btn btn-secondary"
-});
-</script>
+
+<div class="table">
+<table class="table table-sm">
+<thead>
+<tr>
+<th>Account Name</th>
+<th>Title</th>
+<th>Date</th>
+<th>Links</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<% for(var i = 0 ; i < data.length ; i ++) { %>
+<tr>
+<td><a href="https://busy.org/@<%=data[i]['author'] %>" target="_blank">@<%=data[i]['author'] %> </td>
+<td><%= data[i]['title'] %></td>
+<td><%= data[i]['created'].toISOString().replace(/T/, ' ').replace(/\..+/, '')  %></td>
+<td><a href="https://busy.org<%= data[i]['url'] %>" target="_blank"><img src="/img/busy.png" alt="busy"/></a></td>
+<td><a href="https://steemit.com<%= data[i]['url'] %>"target="_blank"><img src="/img/steemit.png" alt="steemit"/></a></td>
+</tr>
+<% }; %>
+<tbody>
+
+</table>
 </div>
+
 </div>
 <footer>
 <% include footer.ejs %>
