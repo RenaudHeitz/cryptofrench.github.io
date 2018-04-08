@@ -73,14 +73,14 @@ app.post('/', function (req, res) {
                                       collection.find({"tags":{ $all: tags }},options).toArray(function(err, data) {
                                                                                                            if (err) {
                                                                                                             console.log(err);
-                                                                                                            res.render('index', {result_err : 1});                                                                                                           }
+                                                                                                            res.render('index', {result_err : 2});
+                                                                                                           }
 
                                                                                                
 
                                                                                                             console.log("Render");
                                                                                                             // Display the results on page.ejs
-                                
-                                                                                                            res.render('result', {tag : tags, data : data});
+                                                                                               res.render('result', {tag : tags, data : data });
                                                                                                             db.close()
 
                                                                                                            });
